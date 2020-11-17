@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e85c5dc3-1a18-4ca6-890d-3a0118c27f5d" name="Default Changelist" comment="" />
+    <list default="true" id="e85c5dc3-1a18-4ca6-890d-3a0118c27f5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/l8/app/Repositories/BaseRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/app/Repositories/CategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b1847e0e-cbe3-491a-a0ca-f5aec4cf53ce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b1847e0e-cbe3-491a-a0ca-f5aec4cf53ce.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/l8/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/l8/resources/views/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/resources/views/categories/index.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,7 +19,17 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="ProjectId" id="1iSL6rNYg5cuxJvOf73d7WcSuU0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,6 +51,21 @@
       <recent name="C:\OpenServer\domains\auth\l8\resources\views\layouts" />
       <recent name="C:\OpenServer\domains\auth\l8\resources\views" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CategoryRepository.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/l8/app/Repositories/CategoryRepository.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.CategoryRepository.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -64,7 +97,7 @@
       <workItem from="1603444364117" duration="14145000" />
       <workItem from="1603648447487" duration="1139000" />
       <workItem from="1605004064459" duration="769000" />
-      <workItem from="1605614973147" duration="382000" />
+      <workItem from="1605614973147" duration="5505000" />
     </task>
     <servers />
   </component>
@@ -90,11 +123,27 @@
     </state>
     <state x="690" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1603269077375" />
     <state x="690" y="335" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1602851954557" />
-    <state x="740" y="297" key="FileChooserDialogImpl" timestamp="1603446741086">
-      <screen x="0" y="0" width="1920" height="1030" />
+    <state x="585" y="145" key="CommitChangelistDialog2" timestamp="1605615727193">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="585" y="145" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1605615727193" />
+    <state x="740" y="335" key="FileChooserDialogImpl" timestamp="1605615516438">
+      <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="740" y="297" key="FileChooserDialogImpl/0.0.1920.1030@0.0.1920.1030" timestamp="1603446741086" />
-    <state x="740" y="335" key="FileChooserDialogImpl/0.0.1920.1160@0.0.1920.1160" timestamp="1602161014656" />
+    <state x="740" y="335" key="FileChooserDialogImpl/0.0.1920.1160@0.0.1920.1160" timestamp="1605615516438" />
+    <state x="838" y="478" key="Github.ShareDialog" timestamp="1605615558614">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="838" y="478" key="Github.ShareDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1605615558614" />
+    <state x="684" y="281" key="Github.UntrackedFilesDialog" timestamp="1605615604237">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="684" y="281" key="Github.UntrackedFilesDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1605615604237" />
+    <state x="733" y="303" key="NewPhpClassDialog" timestamp="1605616509176">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="733" y="303" key="NewPhpClassDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1605616509176" />
     <state x="794" y="447" key="NewPhpFileDialog" timestamp="1603448301922">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
@@ -105,6 +154,10 @@
     </state>
     <state x="439" y="108" key="SettingsEditor/0.0.1920.1030@0.0.1920.1030" timestamp="1603268358222" />
     <state x="461" y="225" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1602674223401" />
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1605615653026">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1605615653026" />
     <state x="667" y="179" width="585" height="801" key="find.popup" timestamp="1602769141042">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>

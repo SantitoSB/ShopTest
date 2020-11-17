@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateCategoryRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\category;
 use App\Models\Product;
+use App\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,12 +15,14 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param CategoryRepository $categoryRepository
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CategoryRepository $categoryRepository)
     {
-        $categories = category::all();
-        return view('categories.index', compact('categories'));
+        $categoriesList = $categoryRepository->getAll(['id', 'name']);
+
+        return view('categories.index', compact('categoriesList'));
     }
 
     /**
@@ -57,6 +60,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         $categories = category::orderBy('name', 'ASC')->get();
+
         if(isset($id))
         {
             $category = category::findOrFail($id);

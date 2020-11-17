@@ -18,7 +18,7 @@
                     <th></th>
                 </tr>
             </thead>
-            @foreach($categories as $category)
+            @foreach($categoriesList as $category)
                 <tr>
                     <td>{{$category->name}}</td>
                     <td><a href="{{route('categories.edit', $category->id)}}" class="btn btn-primary">Edit</a>
