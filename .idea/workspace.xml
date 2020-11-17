@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e85c5dc3-1a18-4ca6-890d-3a0118c27f5d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="ProjectId" id="1iSL6rNYg5cuxJvOf73d7WcSuU0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/l8/resources/views/products" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\OSPanel\domains\auth\l8\resources\views\products" />
+      <recent name="C:\OpenServer\domains\auth\l8\resources\views\categories" />
+      <recent name="C:\OpenServer\domains\auth\l8\resources\views\products" />
+      <recent name="C:\OpenServer\domains\auth\l8\resources\views\layouts" />
+      <recent name="C:\OpenServer\domains\auth\l8\resources\views" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e85c5dc3-1a18-4ca6-890d-3a0118c27f5d" name="Default Changelist" comment="" />
+      <created>1601895874445</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601895874445</updated>
+      <workItem from="1601895875611" duration="1540000" />
+      <workItem from="1601987533501" duration="1915000" />
+      <workItem from="1602056464729" duration="13307000" />
+      <workItem from="1602143578543" duration="14949000" />
+      <workItem from="1602226988494" duration="4391000" />
+      <workItem from="1602498959614" duration="10397000" />
+      <workItem from="1602577534762" duration="16102000" />
+      <workItem from="1602661499757" duration="11330000" />
+      <workItem from="1602747918486" duration="12553000" />
+      <workItem from="1602836383222" duration="10956000" />
+      <workItem from="1603262037152" duration="302000" />
+      <workItem from="1603262340739" duration="494000" />
+      <workItem from="1603262857479" duration="13000" />
+      <workItem from="1603262891966" duration="2246000" />
+      <workItem from="1603265530342" duration="424000" />
+      <workItem from="1603266743291" duration="1772000" />
+      <workItem from="1603268539178" duration="30000" />
+      <workItem from="1603268588769" duration="924000" />
+      <workItem from="1603292114002" duration="2145000" />
+      <workItem from="1603444364117" duration="14145000" />
+      <workItem from="1603648447487" duration="1139000" />
+      <workItem from="1605004064459" duration="769000" />
+      <workItem from="1605614973147" duration="382000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="655" y="292" key="#Notifications" timestamp="1603292121121">
+      <screen x="0" y="0" width="1920" height="1030" />
+    </state>
+    <state x="655" y="292" key="#Notifications/0.0.1920.1030@0.0.1920.1030" timestamp="1603292121121" />
+    <state x="552" y="211" width="998" height="776" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603649069985">
+      <screen x="0" y="0" width="1920" height="1030" />
+    </state>
+    <state x="552" y="211" width="998" height="776" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1603649069985" />
+    <state x="552" y="238" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1602500120586" />
+    <state x="623" y="197" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603444438259">
+      <screen x="0" y="0" width="1920" height="1030" />
+    </state>
+    <state x="623" y="197" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1603444438259" />
+    <state x="690" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603269077375">
+      <screen x="0" y="0" width="1920" height="1030" />
+    </state>
+    <state x="690" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1603269077375" />
+    <state x="690" y="335" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1602851954557" />
+    <state x="740" y="297" key="FileChooserDialogImpl" timestamp="1603446741086">
+      <screen x="0" y="0" width="1920" height="1030" />
+    </state>
+    <state x="740" y="297" key="FileChooserDialogImpl/0.0.1920.1030@0.0.1920.1030" timestamp="1603446741086" />
+    <state x="740" y="335" key="FileChooserDialogImpl/0.0.1920.1160@0.0.1920.1160" timestamp="1602161014656" />
+    <state x="794" y="447" key="NewPhpFileDialog" timestamp="1603448301922">
+      <screen x="0" y="0" width="1920" height="1030" />
+    </state>
+    <state x="794" y="447" key="NewPhpFileDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1603448301922" />
+    <state x="794" y="503" key="NewPhpFileDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1602579326093" />
+    <state x="439" y="108" key="SettingsEditor" timestamp="1603268358222">
+      <screen x="0" y="0" width="1920" height="1030" />
+    </state>
+    <state x="439" y="108" key="SettingsEditor/0.0.1920.1030@0.0.1920.1030" timestamp="1603268358222" />
+    <state x="461" y="225" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1602674223401" />
+    <state x="667" y="179" width="585" height="801" key="find.popup" timestamp="1602769141042">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="667" y="179" width="585" height="801" key="find.popup/0.0.1920.1160@0.0.1920.1160" timestamp="1602769141042" />
+    <state x="616" y="270" key="run.anything.popup" timestamp="1602504870460">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="616" y="270" key="run.anything.popup/0.0.1920.1160@0.0.1920.1160" timestamp="1602504870460" />
+    <state x="623" y="255" width="672" height="678" key="search.everywhere.popup" timestamp="1602162874986">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="623" y="255" width="672" height="678" key="search.everywhere.popup/0.0.1920.1160@0.0.1920.1160" timestamp="1602162874986" />
+  </component>
+</project>
