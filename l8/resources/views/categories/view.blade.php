@@ -9,7 +9,7 @@
 
             <h1 class="my-4">Shop Name</h1>
             <div class="list-group">
-                @foreach($categories as $cat)
+                @foreach($categoriesList as $cat)
                     <a href="{{route('categories.show', $cat->id)}}" class="list-group-item  @if(isset($id) && $cat->id == $id) active @endif">{{$cat->name}}</a>
                 @endforeach
             </div>
@@ -47,7 +47,7 @@
             </div>
 
             <div class="row">
-                @foreach($products as $product)
+                @foreach($productsList as $product)
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card h-100 text-center">
                                 <a href="#"><img class="img-fluid" width="75" src="{{asset('storage/'.$product->photo)}}" alt=""></a>

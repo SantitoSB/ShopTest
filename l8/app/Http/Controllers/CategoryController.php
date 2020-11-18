@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\category;
 use App\Models\Product;
 use App\Repositories\CategoryRepository;
+use App\Repositories\ProductsRepository;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -18,9 +19,10 @@ class CategoryController extends Controller
      * @param CategoryRepository $categoryRepository
      * @return \Illuminate\Http\Response
      */
-    public function index(CategoryRepository $categoryRepository)
+    public function index()
     {
-        $categoriesList = $categoryRepository->getAll(['id', 'name']);
+        $categoryRepository = new CategoryRepository();
+        $categoriesList = $categoryRepository->getAll('name', 'ASC');
 
         return view('categories.index', compact('categoriesList'));
     }
@@ -59,22 +61,21 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $categories = category::orderBy('name', 'ASC')->get();
+        $categoryRepository = new CategoryRepository();
+        $categoriesList = $categoryRepository->getAll('name');
 
-        if(isset($id))
+        $categoryToShow = $categoryRepository->getByID($id);
+        if(empty($categoryToShow))
         {
-            $category = category::findOrFail($id);
-            $products = Product::where('category_id', '=', $category->id)->orderBy('name', 'ASC')->get();
-        }
-        else
-        {
-            $products = Product::orderBy('name', 'ASC')->get();
+            //TODO CategoryController.show: Error can't find category with id!
         }
 
-        return view('categories.view', compact('categories', 'products', 'id'));
+        $productsRepository = new ProductsRepository();
+        $productsList = $productsRepository->getProductsByCategory($categoryToShow->first()->id, 'name', 'ASC');
+
+
+        return view('categories.view', compact('categoriesList', 'productsList', 'id'));
     }
-
-
 
     /**
      * Show the form for editing the specified resource.

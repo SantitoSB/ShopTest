@@ -7,6 +7,8 @@ namespace App\Repositories;
  * @package App\Repositories
  *
  * Base repository class
+ * Get model data. Can't update or create
+ *
  */
 
 abstract class BaseRepository
@@ -39,6 +41,24 @@ abstract class BaseRepository
     protected function init()
     {
         return clone $this->model;
+    }
+
+    protected function hasColumn($column)
+    {
+        //check column exist
+        $hasColumn = $this->model
+            ->getConnection()
+            ->getSchemaBuilder()
+            ->hasColumn($this->model->getTable(), $column);
+
+        if(!$hasColumn)
+        {
+            //TODO log error
+
+            return false;
+        }
+
+        return true;
     }
 
 

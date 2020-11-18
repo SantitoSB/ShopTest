@@ -8,16 +8,42 @@ use App\Models\category as Model;
 
 class CategoryRepository extends BaseRepository
 {
+    /**
+     * @param string $orderColumn
+     * @param string $order
+     * @return mixed
+     *
+     * Get all data from categories model
+     */
+    public function getAll($orderColumn = 'id', $order = 'ASC')
+    {
+        if(!$this->hasColumn($orderColumn))
+        {
+            $orderColumn = 'id';
+            //abort(404);
+        }
+
+        return $this->init()->toBase()->orderBy($orderColumn, $order)->get();
+    }
 
     /**
-     * @param $columns
+     * Method return table row by ID
+     * @param $id
      * @return mixed
      */
-
-    public function getAll($columns)
+    public function getByID($id)
     {
-        dd($this->init()->toBase()->getOnly($columns));
-        return $this->init()->all($columns)->toBase()->getOnly($columns);
+        //find and check if exist
+        $category = $this->init()->whereId($id)->get();
+
+        if(empty($category))
+        {
+            //TODO log error
+            return null;
+            //abort(404);
+        }
+
+        return $category;
     }
 
 
