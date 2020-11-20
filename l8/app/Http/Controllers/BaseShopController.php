@@ -11,6 +11,7 @@ class BaseShopController extends Controller
 {
     /**
      * @var ProductsRepository
+     * Repository for products
      */
     protected $productRepository;
 

@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e85c5dc3-1a18-4ca6-890d-3a0118c27f5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/l8/app/Http/Controllers/BaseShopController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Repositories/BaseRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Repositories/BaseRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Repositories/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Repositories/CategoryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Repositories/ProductsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Repositories/ProductsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/resources/views/categories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/resources/views/categories/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/resources/views/categories/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/resources/views/categories/view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/resources/views/includes/messages.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/resources/views/includes/messages.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/resources/views/products/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/resources/views/products/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/resources/views/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/resources/views/products/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/resources/views/products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/resources/views/products/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/resources/views/products/restore.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/resources/views/products/restore.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/l8/app/Http/Controllers/BaseShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Http/Controllers/BaseShopController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +94,7 @@
       <workItem from="1605614973147" duration="5655000" />
       <workItem from="1605698114889" duration="7229000" />
       <workItem from="1605774440503" duration="14411000" />
-      <workItem from="1605851238779" duration="12867000" />
+      <workItem from="1605851238779" duration="14041000" />
     </task>
     <task id="LOCAL-00001" summary="Work with repository">
       <created>1605620746078</created>
@@ -122,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605706103312</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="refactor repository">
+      <created>1605873063465</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605873063465</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,7 +126,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Work with repository" />
     <MESSAGE value="add products repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="add products repository" />
+    <MESSAGE value="refactor repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor repository" />
   </component>
   <component name="WindowStateProjectService">
     <state x="655" y="292" key="#Notifications" timestamp="1603292121121">
@@ -152,10 +148,10 @@
     </state>
     <state x="690" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1603269077375" />
     <state x="690" y="335" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1605860387142" />
-    <state x="585" y="145" key="CommitChangelistDialog2" timestamp="1605706102961">
+    <state x="585" y="145" key="CommitChangelistDialog2" timestamp="1605873063018">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="585" y="145" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1605706102961" />
+    <state x="585" y="145" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1605873063018" />
     <state x="740" y="335" key="FileChooserDialogImpl" timestamp="1605615516438">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -183,10 +179,10 @@
     </state>
     <state x="439" y="108" key="SettingsEditor/0.0.1920.1030@0.0.1920.1030" timestamp="1603268358222" />
     <state x="461" y="225" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1602674223401" />
-    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1605706105063">
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1605873065846">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="552" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1605706105063" />
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1605873065846" />
     <state x="667" y="179" width="585" height="801" key="find.popup" timestamp="1602769141042">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
