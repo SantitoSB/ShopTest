@@ -17,14 +17,14 @@
                     <th></th>
                 </tr>
             </thead>
-            @foreach($products as $product)
+            @foreach($productsList as $product)
                 <tr>
                     <td>{{$product->name}}</td>
-                    @foreach($allCategories as $cat)
+                    @foreach($categoriesList as $cat)
                         @if($product->category_id == $cat->id)
                             <td>{{$cat->name}}
                             @if($cat->deleted_at !== null)
-                                    <b>(status: trashed)</b>
+                                    <b>(current status: TRASHED)</b>
                             @endif
                             </td>
                         @endif

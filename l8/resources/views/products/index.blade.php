@@ -24,7 +24,7 @@
             @foreach($productsPaginator as $product)
                 <tr>
                     <td>{{$product->name}}</td>
-                    @foreach($categories as $cat)
+                    @foreach($categoriesList as $cat)
                         @if($cat->id == $product->category_id)
                             <td>{{$cat->name}}</td>
                             @continue;

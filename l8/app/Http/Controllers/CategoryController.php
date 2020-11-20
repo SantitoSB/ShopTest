@@ -11,7 +11,7 @@ use App\Repositories\CategoryRepository;
 use App\Repositories\ProductsRepository;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CategoryController extends BaseShopController
 {
     /**
      * Display a listing of the resource.
@@ -21,8 +21,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categoryRepository = new CategoryRepository();
-        $categoriesList = $categoryRepository->getAll('name', 'ASC');
+        $categoriesList = $this->categoryRepository->getAllForList('name', 'ASC');
 
         return view('categories.index', compact('categoriesList'));
     }
@@ -56,38 +55,42 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        $categoryRepository = new CategoryRepository();
-        $categoriesList = $categoryRepository->getAll('name');
+        $categoriesList = $this->categoryRepository->getAllForList('name');
+        $categoryToShow = $this->categoryRepository->getByID($id);
 
-        $categoryToShow = $categoryRepository->getByID($id);
-        if(empty($categoryToShow))
+
+        if(is_null($categoryToShow))
         {
-            //TODO CategoryController.show: Error can't find category with id!
+            return redirect()->route('home')->withErrors(['msg'=> 'Error. Can\'t find category with id = '.$id]);
         }
 
-        $productsRepository = new ProductsRepository();
-        $productsList = $productsRepository->getProductsByCategory($categoryToShow->first()->id, 'name', 'ASC');
+        $productsList = $this->productRepository->getProductsByCategory($categoryToShow->id, 'name', 'ASC');
 
 
-        return view('categories.view', compact('categoriesList', 'productsList', 'id'));
+        return view('categories.view', compact('categoriesList', 'productsList', 'categoryToShow'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        $cat = category::findOrFail($id);
+        $category = $this->categoryRepository->getByID($id);
 
-        return view('categories.edit', compact('cat'));
+        if(is_null($category))
+        {
+            return redirect()->route('categories.index')->withErrors(['msg' => 'Can\'t find category with id = '.$id]);
+        }
+
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -99,13 +102,11 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, $id)
     {
-        $category = category::findOrFail($id);
+        $category = $this->categoryRepository->getByID($id);
+
         $category->update([
             'name' => $request->name
             ]);
-        //$category->name = $request->input('name');
-        //$category->save();
-
 
         return redirect()->route('categories.index')->with('success', 'Category: '.$request->name.' was successfully updated');
     }
@@ -113,14 +114,13 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        $category = category::findOrFail($id);
+        $category = $this->categoryRepository->getByID($id);
         $name = $category->name;
-
         $category->delete();
 
         return redirect()->route('categories.index')->with('success', 'Category: '.$name.' successfully deleted (can be restored)');
@@ -129,12 +129,12 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function forceDestroy($id)
+    public function forceDestroy(int $id)
     {
-        $category = category::findOrFail($id);
+        $category = $this->categoryRepository->getByID($id);
         $name = $category->name;
         $category->forceDelete();
 
@@ -142,20 +142,34 @@ class CategoryController extends Controller
     }
 
     /**
-     * Restore Category page
+     * @return
+     *
+     * Show restore page
      */
     public function showRestore()
     {
-        $categories = category::onlyTrashed()->get();
+        $categories = $this->categoryRepository->getAllTrashed();
 
         return view('categories.restore', compact('categories'));
     }
 
-    public function restore($id)
+    /**
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function restore(int $id)
     {
-        category::onlyTrashed()->where('id', '=', $id)->get()->first()->restore();
-        return redirect()->route('categories.index');
+        $category = $this->categoryRepository->getConditionalTrashed('id', '=', $id);
 
+        //If $category did not find
+        if(is_null($category))
+        {
+            return redirect()->route('categories.index')->withErrors((['msg'=> 'Can\'t find category for restore with id = '.$id]));
+        }
+
+        $category->restore();
+
+        return redirect()->route('categories.index');
     }
 
 }

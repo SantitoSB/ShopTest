@@ -58,7 +58,7 @@
                                         <p>{{$product->description}}</p>
                                     <h5>${{$product->price}}</h5>
                                     <hr>
-                                    Category: {{$product->category->name}}
+                                    Category: {{$categoryToShow->name}}
                                 </div>
                                 <div class="card-footer">
                                     <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -66,9 +66,6 @@
                             </div>
                         </div>
                 @endforeach
-
-
-
             </div>
             <!-- /.row -->
 

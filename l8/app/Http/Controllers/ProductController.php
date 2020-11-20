@@ -10,9 +10,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use function PHPUnit\Framework\isNull;
+use App\Repositories\ProductsRepository;
 
-class ProductController extends Controller
+class ProductController extends BaseShopController
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -20,10 +22,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $productsPaginator = Product::orderBy('name')->paginate(5);//количество записей на странице
-        $categories = category::all(['id', 'name']);
+        $productsPaginator = $this->productRepository->getAllWithPaginate(10, 'name');//количество записей на странице
+        $categoriesList = $this->categoryRepository->getAllForList();
 
-        return view('products.index', compact('productsPaginator', 'categories'));
+        return view('products.index', compact('productsPaginator', 'categoriesList'));
     }
 
     /**
@@ -33,8 +35,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = category::all();//получаем категории для передачи в форму
-        return view('products.create', compact('categories'));
+        //get categories list
+        $categoriesList = $this->categoryRepository->getAllForList('name');
+
+        return view('products.create', compact('categoriesList'));
     }
 
     /**
@@ -53,7 +57,6 @@ class ProductController extends Controller
 
             $path = $request->file('photo')->store('photos/'.$user_id, 'public');
 
-
             Product::create([
                 'name'=>$request->name,
                 'description'=>$request->description,
@@ -69,39 +72,49 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return void
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        $product = Product::findOrFail($id);
-        $categories = category::all();
-        return view('products.edit', compact('product', 'categories'));
+        $product = $this->productRepository->getByID($id);
+
+        if(is_null($product))
+        {
+            return redirect()->route('products.index')->withErrors(['msg' => 'Can\'t find product with id = '.$id]);
+        }
+
+        $categoriesList = $this->categoryRepository->getAllForList('name');
+
+        return view('products.edit', compact('product', 'categoriesList'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  UpdateProductRequest  $request
-     * @param  int  $id
+     * @param UpdateProductRequest $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, $id)
+    public function update(UpdateProductRequest $request, int $id)
     {
+        $product = $this->productRepository->getByID($id);
 
-        $product = Product::findOrFail($id);
-
+        if(is_null($product))
+        {
+            return redirect()->route('home')->withErrors(['msg' => 'Can\'t find product with id = '.$id]);
+        }
 
         if($request->hasFile('photo')) {
             //удаляем файл картинки
@@ -121,7 +134,6 @@ class ProductController extends Controller
             $path = $product->photo;
         }
 
-
         $product->update(
             [
                 'name'=>$request->name,
@@ -138,12 +150,18 @@ class ProductController extends Controller
     /**
      * Soft remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        $product = Product::findOrFail($id);
+        $product = $this->productRepository->getByID($id);
+
+        if(is_null($product))
+        {
+            return redirect()->route('products.index')->withErrors(['msg' => 'Can\'t find product with id = '.$id]);;
+        }
+
         $product->delete();
 
         return redirect()->route('products.index');
@@ -151,12 +169,17 @@ class ProductController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *  @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function forceDestroy($id)
+    public function forceDestroy(int $id)
     {
-        $product = Product::findOrFail($id);
+        $product = $this->productRepository->getByID($id);
+
+        if(is_null($product))
+        {
+            return redirect()->route('products.index')->withErrors(['msg' => 'Can\'t find product with id = '.$id]);
+        }
 
         //удаляем фотографию
         if ($product->photo !== null) {
@@ -176,32 +199,65 @@ class ProductController extends Controller
      */
     public function showRestore()
     {
-        $products = Product::onlyTrashed()->get();
-        $allCategories = category::withTrashed()->get();
-        return view('products.restore', compact('products', 'allCategories'));
+        $productsList = $this->productRepository->getAllTrashed('name');
+        $categoriesList = $this->categoryRepository->getAllWithTrashed();
+
+        return view('products.restore', compact('productsList', 'categoriesList'));
     }
 
-    public function restore($id)
+    /**
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * Restore product
+     */
+    public function restore(int $id)
     {
-        $product = Product::onlyTrashed()->where('id', '=', $id)->get()->first();
+        $product = $this->productRepository->getConditionalTrashed('id', '=', $id);
 
-        $categoriesTrashed = category::onlyTrashed()->where('id', '=', $product->category_id)->get()->first();
+        if(is_null($product))
+        {
+            return redirect()->route('products.index')->withErrors(['msg' => 'Can\'t find product with id = '.$id]);;
+        }
+
+        $categoryExist = $this->categoryRepository
+            ->getConditionalAll('id', '=', $product->category_id);
 
 
-        if(!$categoriesTrashed)//category exist
+        if(!is_null($categoryExist))//category exist
         {
             $product->restore();
         }
         else
         {
-            $unknownCategory = category::withoutTrashed()->where('name', '=', 'UNKNOWN')->get()->first();
-            if(!$unknownCategory)
+            //check if unknown category exist in trashed
+            $unknownCategoryExistInAll = $this->categoryRepository
+                ->getConditionalAll('name', '=', 'UNKNOWN');
+
+            $unknownCategoryExistInTrashed = $this->categoryRepository
+                ->getConditionalTrashed('name', '=', 'UNKNOWN');
+
+            if(is_null($unknownCategoryExistInAll) && is_null($unknownCategoryExistInTrashed))
             {
                 $unknownCategory = new category();
                 $unknownCategory->name = 'UNKNOWN';
                 $unknownCategory->save();
+                $unknownCategoryID = $unknownCategory->id;
             }
-            $product->update(['category_id'=>$unknownCategory->id]);
+            else if(is_null($unknownCategoryExistInAll) && !is_null($unknownCategoryExistInTrashed))
+            {
+                //restore category without cascade
+                $unknownCategoryExistInTrashed->deleted_at = null;
+                $unknownCategoryExistInTrashed->save();
+
+                $unknownCategoryID = $unknownCategoryExistInTrashed->id;
+            }
+            else
+            {
+                $unknownCategoryID = $unknownCategoryExistInAll->id;
+            }
+
+            $product->update(['category_id'=>$unknownCategoryID]);
             $product->restore();
 
             return redirect()->route('products.index')->with('success', 'Product: '.$product->name.' successfully restored! And set to UNKNOWN category!');
