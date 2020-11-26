@@ -10,17 +10,20 @@ use App\Repositories\ProductsRepository;
 class BaseShopController extends Controller
 {
     /**
+     * @var CategoryRepository
+     * Repository for categories
+     */
+    protected $categoryRepository;
+
+    /**
      * @var ProductsRepository
      * Repository for products
      */
     protected $productRepository;
 
     /**
-     * @var CategoryRepository
-     * Repository for categories
+     * BaseShopController constructor.
      */
-    protected $categoryRepository;
-
     public function __construct()
     {
         $this->categoryRepository = app(categoryRepository::class);

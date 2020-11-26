@@ -6,14 +6,19 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\category;
 use App\Models\Product;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use function PHPUnit\Framework\isNull;
-use App\Repositories\ProductsRepository;
 
 class ProductController extends BaseShopController
 {
+
+
+    /**
+     * ProductController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * Display a listing of the resource.
@@ -23,9 +28,9 @@ class ProductController extends BaseShopController
     public function index()
     {
         $productsPaginator = $this->productRepository->getAllWithPaginate(10, 'name');//количество записей на странице
-        $categoriesList = $this->categoryRepository->getAllForList();
+        //$categoriesList = $this->categoryRepository->getAllForList();
 
-        return view('products.index', compact('productsPaginator', 'categoriesList'));
+        return view('products.index', compact('productsPaginator'));
     }
 
     /**

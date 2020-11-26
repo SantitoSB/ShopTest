@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-use App\Http\Requests\UpdateProductRequest;
 use App\Models\category;
-use App\Models\Product;
 use App\Repositories\CategoryRepository;
-use App\Repositories\ProductsRepository;
-use Illuminate\Http\Request;
 
 class CategoryController extends BaseShopController
 {
+    /**
+     * CategoryController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     /**
      * Display a listing of the resource.
      *

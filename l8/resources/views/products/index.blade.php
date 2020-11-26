@@ -24,12 +24,8 @@
             @foreach($productsPaginator as $product)
                 <tr>
                     <td>{{$product->name}}</td>
-                    @foreach($categoriesList as $cat)
-                        @if($cat->id == $product->category_id)
-                            <td>{{$cat->name}}</td>
-                            @continue;
-                        @endif
-                    @endforeach
+                    <td>{{$product->category->name}}</td>
+
 
                     <td>${{$product->price}}</td>
                     <td><img src="{{asset('storage/'.$product->photo)}}" width="70px" alt=""></td>

@@ -4,6 +4,12 @@
     <list default="true" id="e85c5dc3-1a18-4ca6-890d-3a0118c27f5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/l8/app/Http/Controllers/BaseShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Http/Controllers/BaseShopController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/l8/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/l8/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/l8/app/Models/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Models/category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/l8/app/Repositories/ProductsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Repositories/ProductsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/l8/resources/views/products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/resources/views/products/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/l8/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +100,22 @@
       <workItem from="1605614973147" duration="5655000" />
       <workItem from="1605698114889" duration="7229000" />
       <workItem from="1605774440503" duration="14411000" />
-      <workItem from="1605851238779" duration="14041000" />
+      <workItem from="1605851238779" duration="14309000" />
+      <workItem from="1606130323674" duration="20000" />
+      <workItem from="1606130359619" duration="57000" />
+      <workItem from="1606130432038" duration="10000" />
+      <workItem from="1606130472147" duration="198000" />
+      <workItem from="1606130925260" duration="399000" />
+      <workItem from="1606131395412" duration="123000" />
+      <workItem from="1606131658312" duration="3000" />
+      <workItem from="1606132127528" duration="76000" />
+      <workItem from="1606132271575" duration="2000" />
+      <workItem from="1606132308074" duration="2943000" />
+      <workItem from="1606387689869" duration="68000" />
+      <workItem from="1606388331919" duration="4000" />
+      <workItem from="1606388344231" duration="122000" />
+      <workItem from="1606388475530" duration="38000" />
+      <workItem from="1606388627199" duration="4383000" />
     </task>
     <task id="LOCAL-00001" summary="Work with repository">
       <created>1605620746078</created>
@@ -117,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605873063465</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor repository">
+      <created>1605879022911</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605879022911</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,10 +158,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="refactor repository" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="655" y="292" key="#Notifications" timestamp="1603292121121">
-      <screen x="0" y="0" width="1920" height="1030" />
+    <state x="655" y="329" key="#Notifications" timestamp="1606131425262">
+      <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="655" y="292" key="#Notifications/0.0.1920.1030@0.0.1920.1030" timestamp="1603292121121" />
+    <state x="655" y="329" key="#Notifications/0.0.1920.1160@0.0.1920.1160" timestamp="1606131425262" />
     <state x="552" y="211" width="998" height="776" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603649069985">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
@@ -143,15 +172,15 @@
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
     <state x="623" y="197" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1603444438259" />
-    <state x="690" y="335" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605860387142">
+    <state x="690" y="335" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606137611495">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="690" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1603269077375" />
-    <state x="690" y="335" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1605860387142" />
-    <state x="585" y="145" key="CommitChangelistDialog2" timestamp="1605873063018">
+    <state x="690" y="335" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1606137611495" />
+    <state x="585" y="145" key="CommitChangelistDialog2" timestamp="1605879022607">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="585" y="145" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1605873063018" />
+    <state x="585" y="145" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1605879022607" />
     <state x="740" y="335" key="FileChooserDialogImpl" timestamp="1605615516438">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -179,10 +208,10 @@
     </state>
     <state x="439" y="108" key="SettingsEditor/0.0.1920.1030@0.0.1920.1030" timestamp="1603268358222" />
     <state x="461" y="225" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1602674223401" />
-    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1605873065846">
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1605879029079">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="552" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1605873065846" />
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1605879029079" />
     <state x="667" y="179" width="585" height="801" key="find.popup" timestamp="1602769141042">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>

@@ -43,6 +43,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['middleware' => 'auth'], function (){
     Route::resource('categories', 'CategoryController');
-    Route::resource('products', 'ProductController');
+    Route::resource('products', 'ProductController')->except(['show']);
 });
 

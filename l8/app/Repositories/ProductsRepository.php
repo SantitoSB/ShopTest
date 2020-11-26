@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 use App\Models\Product;
 use App\Models\Product as Model;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -48,20 +49,36 @@ class ProductsRepository extends BaseRepository
      * @param $perPage
      * @param string $orderColumn Possible columns ['id', 'name', 'price', 'photo', 'category_id']
      * @param string $order
-     * @return mixed
+     * @return LengthAwarePaginator
      *
      * Function returns products with pagination
      *
      */
     public function getAllWithPaginate($perPage, $orderColumn = 'id', $order = 'ASC')
     {
+        $columns = ['id','name','description','price','photo','category_id'];
+
         if(!$this->hasColumn($orderColumn))
         {
             $orderColumn = 'id';
             Log::warning(' '.__METHOD__.': order column '.$orderColumn.' not found');
         }
 
-        return $this->init()->toBase()->select()->orderBy($orderColumn, $order)->paginate($perPage);
+        if(!in_array($orderColumn, $columns))
+        {
+            $orderColumn = 'id';
+            Log::warning(' '.__METHOD__.': order column '.$orderColumn.' not in send list');
+        }
+
+        $result = $this->init()
+            //->toBase()
+            ->select($columns)
+            ->orderBy($orderColumn, $order)
+            //->with(['category:id,name'])
+                ->with(['category'=>function($query){$query->select(['id', 'name']);}])
+            ->paginate($perPage);
+
+        return $result;
     }
 
 
