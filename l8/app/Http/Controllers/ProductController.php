@@ -54,22 +54,9 @@ class ProductController extends BaseShopController
      */
     public function store(StoreProductRequest $request)
     {
+        $data = $request->all();
 
-        if($request->hasFile('photo'))
-        {
-            $user = auth()->user();
-            $user_id = $user->getAuthIdentifier();
-
-            $path = $request->file('photo')->store('photos/'.$user_id, 'public');
-
-            Product::create([
-                'name'=>$request->name,
-                'description'=>$request->description,
-                'price'=>$request->price,
-                'category_id'=>$request->category_id,
-                'photo'=>$path
-            ]);
-        }
+        Product::create($data);
 
         return redirect()->route('products.index')->with('success', 'Product: '.$request->name.' successfully created!');
     }
@@ -121,32 +108,9 @@ class ProductController extends BaseShopController
             return redirect()->route('home')->withErrors(['msg' => 'Can\'t find product with id = '.$id]);
         }
 
-        if($request->hasFile('photo')) {
-            //удаляем файл картинки
-            if ($product->photo !== null) {
-                if (Storage::disk('public')->exists($product->photo)) {
-                    Storage::disk('public')->delete($product->photo);
-                }
-            }
+        $data = $request->all();
 
-            $user = auth()->user();
-            $user_id = $user->getAuthIdentifier();
-
-            $path = $request->file('photo')->store('photos/' . $user_id, 'public');
-        }
-        else
-        {
-            $path = $product->photo;
-        }
-
-        $product->update(
-            [
-                'name'=>$request->name,
-                'description'=>$request->description,
-                'price'=>$request->price,
-                'category_id'=>$request->category_id,
-                'photo'=>$path
-            ]);
+        $product->update($data);
 
         return redirect()->route('products.index')->with('success', 'Product: '.$request->name.' successfully updated');
 
@@ -186,12 +150,7 @@ class ProductController extends BaseShopController
             return redirect()->route('products.index')->withErrors(['msg' => 'Can\'t find product with id = '.$id]);
         }
 
-        //удаляем фотографию
-        if ($product->photo !== null) {
-            if (Storage::disk('public')->exists($product->photo)) {
-                Storage::disk('public')->delete($product->photo);
-            }
-        }
+
         //удаляем запись из базы
         $product->forceDelete();
 

@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Product as Model;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Log;
+use Psy\Util\Str;
 
 /**
  * Class ProductsRepository
@@ -74,8 +75,8 @@ class ProductsRepository extends BaseRepository
             //->toBase()
             ->select($columns)
             ->orderBy($orderColumn, $order)
-            //->with(['category:id,name'])
-                ->with(['category'=>function($query){$query->select(['id', 'name']);}])
+            ->with(['category:id,name'])
+            //->with(['category'=>function($query){$query->select(['id', 'name']);}])
             ->paginate($perPage);
 
         return $result;

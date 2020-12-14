@@ -1,0 +1,131 @@
+<?php
+
+namespace App\Observers;
+
+use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
+
+class ProductObserver
+{
+
+    /**
+     * @param Product $product
+     *  Call BEFORE CREATE
+     * return void
+     */
+    public function creating(Product $product)
+    {
+
+        $product->photo = $this->savePhotoToDisk($product->photo);
+
+    }
+
+    /**
+     * Handle the product "created" event.
+     *
+     * Call AFTER CREATE
+     *
+     * @param  \App\Models\Product  $product
+     * @return void
+     */
+    public function created(Product $product)
+    {
+        //
+    }
+
+
+
+    /**
+     * @param Product $product
+     *
+     * Call before save, after update, create etc.
+     */
+    public function updating(Product $product)
+    {
+        //check changes
+        if($product->isDirty('photo')) {
+            $originalPhoto = $product->getOriginal('photo');
+            //удаляем файл картинки
+            $this->forceDeletePhoto($originalPhoto);
+
+            $product->photo = $this->savePhotoToDisk($product->photo);
+        }
+
+    }
+
+    /**
+     * Handle the product "updated" event.
+     *
+     * @param  \App\Models\Product  $product
+     * @return void
+     */
+    public function updated(Product $product)
+    {
+
+    }
+
+    /**
+     * Handle the product "deleted" event.
+     *
+     * @param  \App\Models\Product  $product
+     * @return void
+     */
+    public function deleted(Product $product)
+    {
+        //
+    }
+
+    /**
+     * Handle the product "restored" event.
+     *
+     * @param  \App\Models\Product  $product
+     * @return void
+     */
+    public function restored(Product $product)
+    {
+
+    }
+
+
+    /**
+     * Handle the product "force deleted" event.
+     *
+     * @param  \App\Models\Product  $product
+     * @return void
+     */
+    public function forceDeleted(Product $product)
+    {
+        //dd($product);
+        $this->forceDeletePhoto($product->photo);
+    }
+
+
+    /**
+     * Function save photo file to disk
+     * @param $photoFile
+     * @return mixed
+     */
+    private function savePhotoToDisk($photoFile)
+    {
+        $user = auth()->user();
+        $user_id = $user->getAuthIdentifier();
+
+        $path = $photoFile->store('photos/'.$user_id, 'public');
+        return $path;
+    }
+
+
+    /**
+     * Function for delete photo from disk
+     * @param $filePath
+     */
+    private function forceDeletePhoto($filePath)
+    {
+        if(!is_null($filePath))
+        {
+            if (Storage::disk('public')->exists($filePath)) {
+                Storage::disk('public')->delete($filePath);
+            }
+        }
+    }
+}

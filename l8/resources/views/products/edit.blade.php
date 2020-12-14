@@ -34,7 +34,7 @@
                     <img src="{{asset('storage/'.$product->photo)}}" class="img-thumbnail" alt="">
                     <br/>
                     <br/>
-                    <input type="file" name="photo" value="{{asset('storage/'.$product->photo)}}"/>
+                    <input type="file" name="photo" value=""/>
                 </div>
             </div>
 

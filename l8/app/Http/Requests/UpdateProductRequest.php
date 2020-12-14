@@ -24,12 +24,13 @@ class UpdateProductRequest extends FormRequest
      */
     public function rules()
     {
-        
+
         return [
             'name'=>[
                 'required',
                 Rule::unique('products')->ignore($this->name, 'name')
-            ]
+            ],
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ];
     }
 }
