@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e85c5dc3-1a18-4ca6-890d-3a0118c27f5d" name="Default Changelist" comment="observer restore and delete">
-      <change beforePath="$PROJECT_DIR$/.idea/auth.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/auth.iml" afterDir="false" />
+    <list default="true" id="e85c5dc3-1a18-4ca6-890d-3a0118c27f5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Http/Requests/StoreProductRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Http/Requests/StoreProductRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Models/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Models/category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Observers/CategoryObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Observers/CategoryObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Observers/ProductObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Observers/ProductObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Repositories/ProductsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Repositories/ProductsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/l8/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +75,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/l8/public" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="de.espend.idea.laravel.ui.TemplateSettingsForm" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -183,7 +169,7 @@
       <workItem from="1608546771850" duration="8205000" />
       <workItem from="1608633623050" duration="1590000" />
       <workItem from="1608636291009" duration="5251000" />
-      <workItem from="1608707083910" duration="6441000" />
+      <workItem from="1608707083910" duration="7797000" />
     </task>
     <task id="LOCAL-00001" summary="Work with repository">
       <created>1605620746078</created>
@@ -227,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607951558719</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="collections tests">
+      <created>1608714021363</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608714021363</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +233,8 @@
     <MESSAGE value="work with relations" />
     <MESSAGE value="observer" />
     <MESSAGE value="observer restore and delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="observer restore and delete" />
+    <MESSAGE value="collections tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="collections tests" />
   </component>
   <component name="WindowStateProjectService">
     <state x="655" y="329" key="#Notifications" timestamp="1606131425262">
@@ -266,10 +260,10 @@
     </state>
     <state x="690" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1603269077375" />
     <state x="690" y="335" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1607942242088" />
-    <state x="155" y="145" width="1179" height="870" key="CommitChangelistDialog2" timestamp="1608211654175">
+    <state x="155" y="145" width="1179" height="870" key="CommitChangelistDialog2" timestamp="1608714020925">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="155" y="145" width="1179" height="870" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1608211654175" />
+    <state x="155" y="145" width="1179" height="870" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1608714020925" />
     <state x="740" y="335" key="FileChooserDialogImpl" timestamp="1608202278718">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -308,15 +302,15 @@
     </state>
     <state x="794" y="447" key="NewPhpFileDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1603448301922" />
     <state x="794" y="503" key="NewPhpFileDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1602579326093" />
-    <state x="461" y="225" key="SettingsEditor" timestamp="1608636260631">
+    <state x="461" y="225" key="SettingsEditor" timestamp="1608715322943">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="439" y="108" key="SettingsEditor/0.0.1920.1030@0.0.1920.1030" timestamp="1603268358222" />
-    <state x="461" y="225" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1608636260631" />
-    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1608211662078">
+    <state x="461" y="225" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1608715322943" />
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1608714022898">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="552" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1608211662078" />
+    <state x="552" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1608714022898" />
     <state x="667" y="179" width="585" height="801" key="find.popup" timestamp="1608196952194">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
