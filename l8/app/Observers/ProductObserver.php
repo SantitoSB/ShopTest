@@ -15,9 +15,10 @@ class ProductObserver
      */
     public function creating(Product $product)
     {
-
-        $product->photo = $this->savePhotoToDisk($product->photo);
-
+        if(!is_null($product->photo))
+        {
+            $product->photo = $this->savePhotoToDisk($product->photo);
+        }
     }
 
     /**
@@ -65,6 +66,18 @@ class ProductObserver
     }
 
     /**
+     * Call before delete
+     * @param Product $product
+     */
+    public function deleting(Product $product)
+    {
+        if($product->isForceDeleting())
+        {
+            $this->forceDeletePhoto($product->photo);
+        }
+    }
+
+    /**
      * Handle the product "deleted" event.
      *
      * @param  \App\Models\Product  $product
@@ -72,8 +85,10 @@ class ProductObserver
      */
     public function deleted(Product $product)
     {
-        //
+
     }
+
+
 
     /**
      * Handle the product "restored" event.
@@ -95,8 +110,7 @@ class ProductObserver
      */
     public function forceDeleted(Product $product)
     {
-        //dd($product);
-        $this->forceDeletePhoto($product->photo);
+
     }
 
 

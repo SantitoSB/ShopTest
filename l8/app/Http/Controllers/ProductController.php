@@ -6,7 +6,6 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\category;
 use App\Models\Product;
-use Illuminate\Support\Facades\Storage;
 
 class ProductController extends BaseShopController
 {
@@ -28,7 +27,6 @@ class ProductController extends BaseShopController
     public function index()
     {
         $productsPaginator = $this->productRepository->getAllWithPaginate(10, 'name');//количество записей на странице
-        //$categoriesList = $this->categoryRepository->getAllForList();
 
         return view('products.index', compact('productsPaginator'));
     }
@@ -54,11 +52,18 @@ class ProductController extends BaseShopController
      */
     public function store(StoreProductRequest $request)
     {
+
         $data = $request->all();
+        $product = Product::create($data);
 
-        Product::create($data);
-
-        return redirect()->route('products.index')->with('success', 'Product: '.$request->name.' successfully created!');
+        if($product)
+        {
+            return redirect()->route('products.index')->with('success', 'Product: '.$request->name.' successfully created!');
+        }
+        else
+        {
+            return back()->withErrors(['msg' => 'Can\'t save product with name = '.$request->name])->withInput();
+        }
     }
 
     /**
@@ -84,7 +89,7 @@ class ProductController extends BaseShopController
 
         if(is_null($product))
         {
-            return redirect()->route('products.index')->withErrors(['msg' => 'Can\'t find product with id = '.$id]);
+            return back()->withErrors(['msg' => 'Can\'t find product with id = '.$id])->withInput();
         }
 
         $categoriesList = $this->categoryRepository->getAllForList('name');
@@ -105,7 +110,7 @@ class ProductController extends BaseShopController
 
         if(is_null($product))
         {
-            return redirect()->route('home')->withErrors(['msg' => 'Can\'t find product with id = '.$id]);
+            return back()->withErrors(['msg' => 'Can\'t find product with id = '.$id])->withInput();
         }
 
         $data = $request->all();
@@ -131,9 +136,18 @@ class ProductController extends BaseShopController
             return redirect()->route('products.index')->withErrors(['msg' => 'Can\'t find product with id = '.$id]);;
         }
 
-        $product->delete();
+        //удаляем запись из базы
+        $result = $product->forceDelete();
 
-        return redirect()->route('products.index');
+        if($result)
+        {
+            return redirect()->route('products.index')->with('success', 'Products count: '.$result.' successfully deleted');
+        }
+        else
+        {
+            return back()->withErrors(['msg' => 'Unknown error. Failed to delete product with id = '.$id]);;
+        }
+
     }
 
     /**
@@ -150,11 +164,17 @@ class ProductController extends BaseShopController
             return redirect()->route('products.index')->withErrors(['msg' => 'Can\'t find product with id = '.$id]);
         }
 
-
         //удаляем запись из базы
-        $product->forceDelete();
+        $result = $product->forceDelete();
 
-        return redirect()->route('products.index');
+        if($result)
+        {
+            return redirect()->route('products.index')->with('success', 'Products count: '.$result.' successfully deleted');
+        }
+        else
+        {
+            return back()->withErrors(['msg' => 'Unknown error. Failed to delete product with id = '.$id]);;
+        }
     }
 
 

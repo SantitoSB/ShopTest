@@ -26,13 +26,21 @@ class StoreProductRequest extends FormRequest
         return [
             'name'=>'required|unique:products,name',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'category_id' => 'required|integer|exists:categories,id'
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required'=>'Введите имя'
+            'name.required'=>'Введите :attribute'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name'=>'название продукта'
         ];
     }
 }

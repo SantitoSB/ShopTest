@@ -82,6 +82,28 @@ class ProductsRepository extends BaseRepository
         return $result;
     }
 
+    /**
+     * @param string $orderColumn
+     * @param string $order
+     * @return mixed
+     */
+    public function getAll($orderColumn = 'id', $order = 'ASC')
+    {
+        if(!$this->hasColumn($orderColumn))
+        {
+            $orderColumn = 'id';
+            Log::warning(' '.__METHOD__.': order column '.$orderColumn.' not found');
+        }
+
+        $result = $this->init()
+            ->select()
+            ->orderBy($orderColumn, $order)
+            ->with('category:id,name')
+            ->get();
+
+        return $result;
+    }
+
 
     /**
      * @inheritDoc

@@ -6,13 +6,14 @@ use App\Models\category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class HomeController extends BaseShopController
 {
     public function showAll()
     {
         $categories = category::orderBy('name', 'ASC')->get();
-        $products = Product::orderBy('name', 'ASC')->get();
+
+        $products = $this->productRepository->getAll('name', 'ASC');
         $id = null;
-        return view('index', compact('categories', 'products', 'id'));
+        return view('index', compact('categories','products', 'id'));
     }
 }

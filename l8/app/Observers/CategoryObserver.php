@@ -39,6 +39,32 @@ class CategoryObserver
         //
     }
 
+    public function deleting(category $category)
+    {
+        if($category->isForceDeleting())
+        {
+            $category->products()->withTrashed()->each(function($product){
+                $product->forceDelete();
+            });
+        }
+        else
+        {
+            $category->products()->each(function($product){
+                $product->delete();
+            });
+        }
+    }
+
+
+    public function restoring(category $category)
+    {
+        $category->products()->onlyTrashed()->each(function($product)
+        {
+            $product->restore();
+        });
+    }
+
+
     /**
      * Handle the category "restored" event.
      *
@@ -58,6 +84,6 @@ class CategoryObserver
      */
     public function forceDeleted(category $category)
     {
-        //
+
     }
 }

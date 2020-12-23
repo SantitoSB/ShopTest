@@ -18,17 +18,6 @@ class category extends Model
     protected static function boot() {
         parent::boot();
 
-        static::deleting(function($category) {
-            if ($category->forceDeleting) {
-                $category->products()->withTrashed()->forceDelete();
-            } else {
-                $category->products()->delete();
-            }
-        });
-
-        static::restoring(function($cat) {
-            $cat->products()->restore();
-        });
     }
 
     public function products()

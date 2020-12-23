@@ -46,3 +46,6 @@ Route::group(['middleware' => 'auth'], function (){
     Route::resource('products', 'ProductController')->except(['show']);
 });
 
+Route::group(['prefix' => 'digging_deeper',], function (){
+    Route::get('collections', 'DiggingDeeperController@collections')->name('digging_deeper');
+});

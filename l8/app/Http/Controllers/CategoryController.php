@@ -44,16 +44,22 @@ class CategoryController extends BaseShopController
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreCategoryRequest $request)
     {
-        category::create(
-            [
-                'name' => $request->name
-            ]);
+        $data = $request->all();
 
-        return redirect()->route('categories.index')->with('success', 'New category: '.$request->name.' successfully created!');
+        $category = category::create($data);
+
+        if($category)
+        {
+            return redirect()->route('categories.index')->with('success', 'New category: '.$request->name.' successfully created!');
+        }
+        else
+        {
+            return back()->withErrors(['msg' => 'Can\'t save category with name = '.$request->name])->withInput();
+        }
     }
 
     /**
@@ -108,9 +114,14 @@ class CategoryController extends BaseShopController
     {
         $category = $this->categoryRepository->getByID($id);
 
-        $category->update([
-            'name' => $request->name
-            ]);
+        if(is_null($category))
+        {
+            return redirect()->route('categories.index')->withErrors(['msg' => 'Can\'t find category with id = '.$id]);
+        }
+
+        $data = $request->all();
+
+        $category->update($data);
 
         return redirect()->route('categories.index')->with('success', 'Category: '.$request->name.' was successfully updated');
     }
@@ -124,6 +135,12 @@ class CategoryController extends BaseShopController
     public function destroy(int $id)
     {
         $category = $this->categoryRepository->getByID($id);
+
+        if(is_null($category))
+        {
+            return redirect()->route('categories.index')->withErrors(['msg' => 'Can\'t find category with id = '.$id]);
+        }
+
         $name = $category->name;
         $category->delete();
 
@@ -139,6 +156,12 @@ class CategoryController extends BaseShopController
     public function forceDestroy(int $id)
     {
         $category = $this->categoryRepository->getByID($id);
+
+        if(is_null($category))
+        {
+            return redirect()->route('categories.index')->withErrors(['msg' => 'Can\'t find category with id = '.$id]);
+        }
+
         $name = $category->name;
         $category->forceDelete();
 
