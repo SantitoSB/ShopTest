@@ -24,6 +24,11 @@ abstract class BaseRepository
     protected $model;
 
     /**
+     * Channel for logging
+     */
+    const LOG_CHANNEL = 'actionmsg';
+
+    /**
      * BaseRepository constructor.
      */
     public function __construct()
@@ -58,7 +63,7 @@ abstract class BaseRepository
 
         if(is_null($result))
         {
-            Log::error(' '.__METHOD__.': can\'t find category with id = '.$id);
+            Log::channel(self::LOG_CHANNEL)->error(' '.__METHOD__.': can\'t find category with id = '.$id);
         }
 
         return $result;
@@ -76,7 +81,7 @@ abstract class BaseRepository
         if(!$this->hasColumn($orderColumn))
         {
             $orderColumn = 'id';
-            Log::warning(' '.__METHOD__.': order column '.$orderColumn.' not found');
+            Log::channel(self::LOG_CHANNEL)->warning(' '.__METHOD__.': order column '.$orderColumn.' not found');
         }
 
         $result = $this->init()
@@ -111,7 +116,7 @@ abstract class BaseRepository
         if(!$this->hasColumn($orderColumn) || !in_array($orderColumn, $columns))
         {
             $orderColumn = 'id';
-            Log::warning(' '.__METHOD__.': order column '.$orderColumn.' not found');
+            Log::channel(self::LOG_CHANNEL)->warning(' '.__METHOD__.': order column '.$orderColumn.' not found');
         }
 
         $result = $this->init()
@@ -135,7 +140,7 @@ abstract class BaseRepository
         if(!$this->hasColumn($orderColumn))
         {
             $orderColumn = 'id';
-            Log::warning(' '.__METHOD__.': order column '.$orderColumn.' not found');
+            Log::channel(self::LOG_CHANNEL)->warning(' '.__METHOD__.': order column '.$orderColumn.' not found');
         }
 
         $result = $this->init()
@@ -170,7 +175,7 @@ abstract class BaseRepository
         if(!$this->hasColumn($orderColumn))
         {
             $orderColumn = 'id';
-            Log::warning(' '.__METHOD__.': order column '.$orderColumn.' not found');
+            Log::channel(self::LOG_CHANNEL)->warning(' '.__METHOD__.': order column '.$orderColumn.' not found');
         }
 
         $result = $this->init()

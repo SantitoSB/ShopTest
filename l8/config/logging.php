@@ -1,5 +1,6 @@
 <?php
 
+use App\Logging\SimpleFormatter;
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
@@ -37,7 +38,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['single', 'slack'],
             'ignore_exceptions' => false,
         ],
 
@@ -56,7 +57,7 @@ return [
 
         'slack' => [
             'driver' => 'slack',
-            'url' => env('LOG_SLACK_WEBHOOK_URL'),
+            'url' => env('SLACK_WEBHOOK'),
             'username' => 'Laravel Log',
             'emoji' => ':boom:',
             'level' => 'critical',
@@ -96,9 +97,18 @@ return [
             'handler' => NullHandler::class,
         ],
 
+
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'actionmsg' => [
+            'driver' => 'single',
+            'tap' => [SimpleFormatter::class],
+            'path' => storage_path('logs/actions_msg.log'),
+            'level' => 'debug',
+        ],
+
     ],
 
 ];

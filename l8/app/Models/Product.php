@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
 
 class Product extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use Notifiable;
 
 
     protected $fillable = ['name', 'description', 'price', 'category_id', 'photo', 'deleted_at'];
@@ -56,6 +58,28 @@ class Product extends Model
     public function setNameAttribute($incomingName)
     {
         $this->attributes['name'] = mb_strtolower($incomingName);
+    }
+
+    /**
+     * Route notifications for the Slack channel.
+     *
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return string
+     */
+    public function routeNotificationForSlack($notification)
+    {
+        return config('app.slack_webhook');
+    }
+
+    /**
+     * Route notifications for the Discord channel.
+     *
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return string
+     */
+    public function routeNotificationForDiscord($notification)
+    {
+        return config('app.discord_webhook');
     }
 
 }
