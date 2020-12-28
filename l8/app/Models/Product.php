@@ -82,4 +82,9 @@ class Product extends Model
         return config('app.discord_webhook');
     }
 
+    public function routeNotificationForMail($notification)
+    {
+        return 'santosb@mail.ru';
+    }
+
 }

@@ -2,27 +2,23 @@
 
 namespace App\Notifications;
 
-use App\Models\Product;
-use Awssat\Notifications\Messages\DiscordMessage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NewProductCreatedDiscord extends Notification
+class NewProductCreatedMail extends Notification
 {
     use Queueable;
 
-
-    private $product;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Product $product)
+    public function __construct()
     {
-        $this->product = $product;
+        //
     }
 
     /**
@@ -33,7 +29,7 @@ class NewProductCreatedDiscord extends Notification
      */
     public function via($notifiable)
     {
-        return ['discord'];
+        return ['mail'];
     }
 
     /**
@@ -45,9 +41,12 @@ class NewProductCreatedDiscord extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->from('robot@mail.ru', 'Robot mail')
+                    ->subject('Confirm your email address to get started')
+                    ->greeting('Hello, ')
                     ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->action('Confirm email address', url('/'))
+                    ->line('If you haven’t requested this email, there’s nothing to worry about – you can safely ignore it.!');
     }
 
     /**
@@ -61,18 +60,5 @@ class NewProductCreatedDiscord extends Notification
         return [
             //
         ];
-    }
-
-    public function toDiscord($notifiable)
-    {
-        return (new DiscordMessage)
-            ->from('Laravel Bot')
-            ->content('New product: '.$this->product->name.' with price: '.$this->product->price.'$ have been created!')
-            ->embed(function ($embed) {
-                $embed->title('Technical details')
-                    ->field('Laravel version', app()->version())
-                    ->field('PHP version', phpversion())
-                    ->color('FF0000');
-            });
     }
 }

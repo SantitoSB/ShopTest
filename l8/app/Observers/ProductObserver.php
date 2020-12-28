@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Models\Product;
 use App\Notifications\newProductCreated;
 use App\Notifications\NewProductCreatedDiscord;
+use App\Notifications\NewProductCreatedMail;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -36,9 +37,11 @@ class ProductObserver
     {
 
         //$product->notify(new NewProductCreated($product));
-        //$product->notify(new NewProductCreatedDiscord($product));
+        $product->notify(new NewProductCreatedDiscord($product));
 
-        Log::critical('New product created. ID: '.$product->id.' Name: '.$product->name.' Category_ID: '.$product->category_id);
+        $product->notify(new newProductCreatedMail());
+
+        //Log::critical('New product created. ID: '.$product->id.' Name: '.$product->name.' Category_ID: '.$product->category_id);
 
         Log::channel('actionmsg')->info('New product created. ID: '.$product->id.' Name: '.$product->name.' Category_ID: '.$product->category_id);
     }
