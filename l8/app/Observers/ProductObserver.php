@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Jobs\ProductAfterCreateJob;
 use App\Models\Product;
 use App\Notifications\newProductCreated;
 use App\Notifications\NewProductCreatedDiscord;
@@ -35,15 +36,10 @@ class ProductObserver
      */
     public function created(Product $product)
     {
-
         //$product->notify(new NewProductCreated($product));
-        $product->notify(new NewProductCreatedDiscord($product));
-
-        $product->notify(new newProductCreatedMail());
-
         //Log::critical('New product created. ID: '.$product->id.' Name: '.$product->name.' Category_ID: '.$product->category_id);
+        //Log::channel('actionmsg')->info('New product created. ID: '.$product->id.' Name: '.$product->name.' Category_ID: '.$product->category_id);
 
-        Log::channel('actionmsg')->info('New product created. ID: '.$product->id.' Name: '.$product->name.' Category_ID: '.$product->category_id);
     }
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Jobs\ProductAfterCreateJob;
 use App\Models\category;
 use App\Models\Product;
 
@@ -55,6 +56,13 @@ class ProductController extends BaseShopController
 
         $data = $request->all();
         $product = Product::create($data);
+
+        //Запускаем job
+        if($product)
+        {
+            $job = (new ProductAfterCreateJob($product))->delay(30);
+            $this->dispatch($job);
+        }
 
         if($product)
         {

@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\Product;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,14 +12,17 @@ class NewProductCreatedMail extends Notification
 {
     use Queueable;
 
+
+    private $product;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Product $product)
     {
-        //
+        $this->product = $product;
     }
 
     /**
@@ -44,7 +48,7 @@ class NewProductCreatedMail extends Notification
                     ->from('robot@mail.ru', 'Robot mail')
                     ->subject('Confirm your email address to get started')
                     ->greeting('Hello, ')
-                    ->line('The introduction to the notification.')
+                    ->line('New product created: '.$this->product->name)
                     ->action('Confirm email address', url('/'))
                     ->line('If you haven’t requested this email, there’s nothing to worry about – you can safely ignore it.!');
     }
