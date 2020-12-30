@@ -2,12 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e85c5dc3-1a18-4ca6-890d-3a0118c27f5d" name="Default Changelist" comment="notification via slack and discord">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b1847e0e-cbe3-491a-a0ca-f5aec4cf53ce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b1847e0e-cbe3-491a-a0ca-f5aec4cf53ce.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/app/Console/Commands/TestProductCreateNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/app/Jobs/ProductAfterCreateJob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/database/migrations/2020_12_23_085657_create_jobs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/html/button.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/html/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/html/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/html/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/html/message.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/html/panel.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/html/subcopy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/html/table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/html/themes/default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/text/button.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/text/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/text/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/text/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/text/message.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/text/panel.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/text/subcopy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/l8/resources/views/vendor/mail/text/table.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Notifications/NewProductCreatedMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Notifications/NewProductCreatedMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/app/Observers/ProductObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/app/Observers/ProductObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/l8/config/logging.php" beforeDir="false" afterPath="$PROJECT_DIR$/l8/config/logging.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +95,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../phplearning" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -181,6 +196,7 @@
       <workItem from="1609150601881" duration="4155000" />
       <workItem from="1609237773803" duration="5947000" />
       <workItem from="1609316495572" duration="619000" />
+      <workItem from="1609318188577" duration="1853000" />
     </task>
     <task id="LOCAL-00001" summary="Work with repository">
       <created>1605620746078</created>
@@ -337,11 +353,11 @@
     </state>
     <state x="794" y="447" key="NewPhpFileDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1603448301922" />
     <state x="794" y="503" key="NewPhpFileDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1602579326093" />
-    <state x="461" y="225" key="SettingsEditor" timestamp="1608715322943">
+    <state x="461" y="225" key="SettingsEditor" timestamp="1609319084492">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="439" y="108" key="SettingsEditor/0.0.1920.1030@0.0.1920.1030" timestamp="1603268358222" />
-    <state x="461" y="225" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1608715322943" />
+    <state x="461" y="225" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1609319084492" />
     <state x="552" y="313" key="Vcs.Push.Dialog.v2" timestamp="1609161663717">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
