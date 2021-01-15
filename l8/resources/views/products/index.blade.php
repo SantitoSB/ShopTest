@@ -15,6 +15,7 @@
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Created by</th>
                     <th>Category</th>
                     <th>Price</th>
                     <th>Photo</th>
@@ -24,6 +25,7 @@
             @foreach($productsPaginator as $product)
                 <tr>
                     <td>{{$product->name}}</td>
+                    <td>{{$product->user->name}}</td>
                     <td>{{$product->category->name}}</td>
 
 

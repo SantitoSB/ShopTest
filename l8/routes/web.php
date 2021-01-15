@@ -13,31 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/about', function () {
+Route::middleware(['middleware' => 'auth'])->get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/services', function () {
+Route::middleware(['middleware' => 'auth'])->get('/services', function () {
     return view('services');
 })->name('services');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/contact', function () {
+Route::middleware(['middleware' => 'auth'])->get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/', 'HomeController@showAll')
+Route::middleware(['middleware' => 'auth'])->get('/', 'HomeController@showAll')
     ->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/categories/restore', 'CategoryController@showRestore')->name('showCategoryRestore');
-Route::middleware(['auth:sanctum', 'verified'])->get('/categories/{id}/restore', 'CategoryController@restore')->name('categoryRestore');
-Route::middleware(['auth:sanctum', 'verified'])->delete('/categories/{id}/force-destroy', 'CategoryController@forceDestroy')->name('categories.forceDestroy');
+Route::middleware(['middleware' => 'auth'])->get('/categories/restore', 'CategoryController@showRestore')->name('showCategoryRestore');
+Route::middleware(['middleware' => 'auth'])->get('/categories/{id}/restore', 'CategoryController@restore')->name('categoryRestore');
+Route::middleware(['middleware' => 'auth'])->delete('/categories/{id}/force-destroy', 'CategoryController@forceDestroy')->name('categories.forceDestroy');
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/products/restore', 'ProductController@showRestore')->name('showProductRestore');
-Route::middleware(['auth:sanctum', 'verified'])->get('/products/{id}/restore', 'ProductController@restore')->name('productRestore');
-Route::middleware(['auth:sanctum', 'verified'])->delete('/products/{id}/force-destroy', 'ProductController@forceDestroy')->name('products.forceDestroy');
+Route::middleware(['middleware' => 'auth'])->get('/products/restore', 'ProductController@showRestore')->name('showProductRestore');
+Route::middleware(['middleware' => 'auth'])->get('/products/{id}/restore', 'ProductController@restore')->name('productRestore');
+Route::middleware(['middleware' => 'auth'])->delete('/products/{id}/force-destroy', 'ProductController@forceDestroy')->name('products.forceDestroy');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['middleware' => 'auth'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 

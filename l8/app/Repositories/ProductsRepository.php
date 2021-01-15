@@ -57,7 +57,7 @@ class ProductsRepository extends BaseRepository
      */
     public function getAllWithPaginate($perPage, $orderColumn = 'id', $order = 'ASC')
     {
-        $columns = ['id','name','description','price','photo','category_id'];
+        $columns = ['id','name','description','price','photo','category_id', 'created_by_user_id'];
 
         if(!$this->hasColumn($orderColumn))
         {
@@ -76,6 +76,7 @@ class ProductsRepository extends BaseRepository
             ->select($columns)
             ->orderBy($orderColumn, $order)
             ->with(['category:id,name'])
+            ->with(['user:id,name'])
             //->with(['category'=>function($query){$query->select(['id', 'name']);}])
             ->paginate($perPage);
 

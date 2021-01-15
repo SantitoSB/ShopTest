@@ -29,6 +29,8 @@ class ProductController extends BaseShopController
     {
         $productsPaginator = $this->productRepository->getAllWithPaginate(10, 'name');//количество записей на странице
 
+
+
         return view('products.index', compact('productsPaginator'));
     }
 
