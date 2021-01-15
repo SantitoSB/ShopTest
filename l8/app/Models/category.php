@@ -24,4 +24,9 @@ class category extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function latestProductAdded()
+    {
+        return $this->hasOne(Product::class)->latest();
+    }
 }
