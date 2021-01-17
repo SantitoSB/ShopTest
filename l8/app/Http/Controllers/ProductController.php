@@ -147,7 +147,7 @@ class ProductController extends BaseShopController
         }
 
         //удаляем запись из базы
-        $result = $product->forceDelete();
+        $result = $product->delete();
 
         if($result)
         {

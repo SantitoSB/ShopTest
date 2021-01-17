@@ -14,7 +14,7 @@ class AddCreatedByUserIdToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->unsignedInteger('created_by_user_id');
+            $table->unsignedBigInteger('created_by_user_id');
             $table->foreign('created_by_user_id')->references('id')->on('users');
         });
     }
