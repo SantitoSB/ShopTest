@@ -36,9 +36,9 @@ class ProductObserver
      */
     public function created(Product $product)
     {
-        $product->notify(new NewProductCreated($product));
+        //$product->notify(new NewProductCreated($product));
         //Log::critical('New product created. ID: '.$product->id.' Name: '.$product->name.' Category_ID: '.$product->category_id);
-        Log::channel('actionmsg')->info('New product created. ID: '.$product->id.' Name: '.$product->name.' Category_ID: '.$product->category_id);
+        //Log::channel('actionmsg')->info('New product created. ID: '.$product->id.' Name: '.$product->name.' Category_ID: '.$product->category_id);
 
     }
 
